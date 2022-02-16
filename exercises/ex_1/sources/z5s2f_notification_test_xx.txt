@@ -1,0 +1,74 @@
+*&---------------------------------------------------------------------*
+*& Report z5s2f_notification_test_xx
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT z5s2f_notification_test_xx.
+
+DATA lrx_api TYPE REF TO /iwngw/cx_notification_api.
+DATA lv_provider_id TYPE /iwngw/if_notif_provider=>ty_s_provider-id.
+DATA lt_notif TYPE /iwngw/if_notif_provider=>ty_t_notification.
+DATA ls_notif LIKE LINE OF lt_notif.
+DATA lv_system_uuid TYPE REF TO if_system_uuid.
+DATA lt_recipient TYPE /iwngw/if_notif_provider=>ty_t_notification_recipient.
+DATA ls_recipient LIKE LINE OF lt_recipient.
+DATA lt_parameter TYPE /iwngw/if_notif_provider=>ty_t_navigation_parameter.
+DATA ls_parameter LIKE LINE OF lt_parameter.
+DATA ls_param_bundle TYPE /iwngw/if_notif_provider=>ty_s_notification_param_bundle.
+DATA lt_param_bundle TYPE /iwngw/if_notif_provider=>ty_t_notification_param_bundle.
+DATA ls_cont_parameter TYPE /iwngw/if_notif_provider=>ty_s_notification_parameter.
+DATA lt_cont_parameter TYPE /iwngw/if_notif_provider=>ty_t_notification_parameter.
+
+lv_system_uuid = cl_uuid_factory=>create_system_uuid( ).
+
+ls_recipient-id = '<your_userid>'.
+APPEND ls_recipient TO lt_recipient.
+
+
+ls_cont_parameter-name = 'po_number'.
+ls_cont_parameter-value = 'TEST'.
+ls_cont_parameter-type = /iwngw/if_notif_provider=>gcs_parameter_types-type_string.
+ls_cont_parameter-is_sensitive = abap_false.
+APPEND ls_cont_parameter TO lt_cont_parameter.
+
+ls_param_bundle-language = sy-langu.
+ls_param_bundle-parameters = lt_cont_parameter.
+
+
+APPEND ls_param_bundle TO lt_param_bundle.
+
+
+ls_notif-id                       = lv_system_uuid->create_uuid_x16( ).
+ls_notif-type_key                 = 'POCustomNotificationKey'.
+ls_notif-type_version             = '1'.
+ls_notif-priority                 = /iwngw/if_notif_provider=>gcs_priorities-high.
+ls_notif-actor_id                 = '<your_userid>'.
+ls_notif-actor_type               = '<your_name>'.
+ls_notif-actor_display_text       = '<your_name>'.
+ls_notif-actor_image_url          = 'sap-icon://group'.
+ls_notif-recipients               = lt_recipient.
+
+ls_notif-parameters = lt_param_bundle.
+
+
+APPEND ls_notif TO lt_notif.
+
+
+**********************************************************************
+
+
+lv_provider_id = 'ZCL_5S2F_PO0001_XX'.
+
+
+TRY .
+    /iwngw/cl_notification_api=>create_notifications(
+      EXPORTING
+        iv_provider_id  = lv_provider_id
+        it_notification = lt_notif
+    ).
+  CATCH /iwngw/cx_notification_api INTO lrx_api.
+
+
+
+
+ENDTRY.
