@@ -3,7 +3,7 @@
 ## Introduction
 In this section you will explore an option that will allow you to call an OData service to trigger notification creation.  You will later use this approach for the custom SAPUI5 code you will add in the SAP Fiori app extension.
 
-Note – If you are familiar with Postman you will find a collection you can import into your workspace and test Odata calls to service /IWNGW/CREATE_NOTIFICATION_SRV using Postman. You will find this information in ![here](sources/Postman) or in our publicly available ![Postman collection](https://documenter.getpostman.com/view/15167722/UVkiRxWt).
+Note – If you are familiar with Postman you will find a collection you can import into your workspace and test Odata calls to service /IWNGW/CREATE_NOTIFICATION_SRV using Postman. You will find this information in ![here](sources/Postman) or in our publicly available ![Postman collection](sources/Postman/Postman_documentation.url).
 
 ## Activate service /IWNGW/CREATE_NOTIFICATION_SRV
 Logon to your SAP S/4HANA backend and activate service /IWNGW/CREATE_NOTIFICATION_SRV. You can do this using transaction /n/IWFND/MAINT_SERVICE.

@@ -48,6 +48,6 @@ Development of a custom notification provider implies leveraging a standard iner
 -	/IWNGW/IF_NOTIF_PROVIDER~GET_NOTIFICATION_TYPE_TEXT: Returns language dependent text related to the notification type, including text templates and action texts.
 -	/IWNGW/IF_NOTIF_PROVIDER~HANDLE_ACTION: Required when notification allows end users to trigger actions (defined in GET_NOTIFICATION_TYPE).
 
-  ![Example of custom class implementation](images/sample_classimplementation.png) 
+  ![Example of custom class implementation](images/sample_classimplementation.png)
 
-For more information on Notification Providers click on this link
+For more information on Notification Providers click on this ![link](https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/202110.000/en-US/80331a1a19464223897f9bd60584461f.html).
