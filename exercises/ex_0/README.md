@@ -50,4 +50,4 @@ Development of a custom notification provider implies leveraging a standard iner
 
   ![Example of custom class implementation](images/sample_classimplementation.png)
 
-For more information on Notification Providers click on this ![link](https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/202110.000/en-US/80331a1a19464223897f9bd60584461f.html).
+For more information on Notification Providers click on this ![link]: https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/202110.000/en-US/80331a1a19464223897f9bd60584461f.html.
