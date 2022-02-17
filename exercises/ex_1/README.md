@@ -34,7 +34,7 @@ Copy code from source folder. This implementation includes code for methods:
 - /iwngw/if_notif_provider~handle_bulk_action.
 
 Note – We will first have you create all objects and afterward explain the code considering the simplest implementation for a notification provider.
-  ![Source Code](sources/zcl_5s2f_po0001_xx.txt)
+  ![Source Code](./sources/zcl_5s2f_po0001_xx.txt)
   ![Copy code from source](images/custom_class_implementation.png)
 
 ## Add Text Elements

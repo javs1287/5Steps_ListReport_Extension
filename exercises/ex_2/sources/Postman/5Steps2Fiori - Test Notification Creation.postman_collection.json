@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "9a0f4518-1db9-498c-a9a1-005aaf382449",
+		"name": "5Steps2Fiori - Test Notification Creation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "NOTIFICATION GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xcsrf = postman.getResponseHeader(\"x-csrf-token\");",
+							"pm.globals.set(\"x-csrf-token\", xcsrf);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrf-token",
+						"value": "Fetch",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{system_details}}/sap/opu/odata/IWNGW/CREATE_NOTIFICATION_SRV/$metadata",
+					"protocol": "https",
+					"host": [
+						"{{system_details}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"IWNGW",
+						"CREATE_NOTIFICATION_SRV",
+						"$metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NOTIFICATION POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-csrf-token",
+						"value": "{{x-csrf-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Id\": \"20ee88ea14434767939fa90155ece18e\",\n    \"OriginId\": \"LOCAL\",\n    \"NotificationTypeId\": \"20ee88ea-1443-4767-939f-a90155ece18e\",\n    \"NotificationTypeKey\": \"POCustomNotificationKey\",\n    \"NotificationTypeVersion\": \"1\",\n    \"NavigationTargetAction\": \"manage\",\n    \"NavigationTargetObject\": \"PurchaseOrder\",\n    \"Priority\": \"HIGH\",\n    \"ProviderId\": \"ZCL_5S2F_PO0001_XX\",\n    \"ActorId\": \"FIORIADMIN\",\n    \"ActorType\": \"\",\n    \"ActorDisplayText\": \"FIORIADMIN\",\n    \"ActorImageURL\": \"\",\n    \"Properties\": {\n        \"results\": [\n            {\n                \"NotificationId\":\"20ee88ea14434767939fa90155ece18e\",\n                \"Key\": \"po_number\",\n                \"Language\": \"E\",\n                \"Value\": \"4500000126\",\n                \"Type\": \"Edm.String\",\n                \"IsSensitive\": false\n            }\n        ]\n    },\n    \"Recipients\": {\n        \"results\": [\n            {\n                \"NotificationId\":\"20ee88ea14434767939fa90155ece18e\",\n                \"RecipientId\": \"FIORIADMIN\"\n            }\n        ]\n    },\n    \"TargetParameters\": {\n        \"results\": [\n            {\n                \"NotificationId\": \"20ee88ea14434767939fa90155ece18e\",\n                \"Key\": \"PurchaseOrder\",\n                \"Value\": \"4500000126\"\n            }   \n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{system_details}}/sap/opu/odata/IWNGW/CREATE_NOTIFICATION_SRV/Notifications",
+					"protocol": "https",
+					"host": [
+						"{{system_details}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"IWNGW",
+						"CREATE_NOTIFICATION_SRV",
+						"Notifications"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "FIORIADMIN",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "Welcome1",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"var xcsrf = postman.getResponseHeader(\"x-csrf-token\");",
+					"pm.globals.set(\"x-csrf-token\", xcsrf);"
+				]
+			}
+		}
+	]
+}

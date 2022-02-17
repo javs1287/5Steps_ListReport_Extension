@@ -1,0 +1,44 @@
+{
+    "Id": "20ee88ea14434767939fa90155ece18e",
+    "OriginId": "LOCAL",
+    "NotificationTypeId": "20ee88ea-1443-4767-939f-a90155ece18e",
+    "NotificationTypeKey": "POCustomNotificationKey",
+    "NotificationTypeVersion": "1",
+    "NavigationTargetAction": "manage",
+    "NavigationTargetObject": "PurchaseOrder",
+    "Priority": "HIGH",
+    "ProviderId": "ZCL_5S2F_PO0001_XX",
+    "ActorId": "FIORIADMIN",
+    "ActorType": "",
+    "ActorDisplayText": "FIORIADMIN",
+    "ActorImageURL": "",
+    "Properties": {
+        "results": [
+            {
+                "NotificationId":"20ee88ea14434767939fa90155ece18e",
+                "Key": "po_number",
+                "Language": "E",
+                "Value": "4500000126",
+                "Type": "Edm.String",
+                "IsSensitive": false
+            }
+        ]
+    },
+    "Recipients": {
+        "results": [
+            {
+                "NotificationId":"20ee88ea14434767939fa90155ece18e",
+                "RecipientId": "FIORIADMIN"
+            }
+        ]
+    },
+    "TargetParameters": {
+        "results": [
+            {
+                "NotificationId": "20ee88ea14434767939fa90155ece18e",
+                "Key": "PurchaseOrder",
+                "Value": "4500000126"
+            }
+        ]
+    }
+}
