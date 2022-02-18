@@ -52,6 +52,7 @@ Follow these steps to extend standard app Manage Purchase Orders using Business 
 * [Exercise 0 - Understanding SAP Fiori Notification Framework](exercises/ex_0)
 * [Exercise 1 - Developing and testing a custom Notification Provider](exercises/ex_1)
 * [Exercise 2 - Triggering Notifications from an OData service](exercises/ex_2)
+* [Exercise 3 - Adaptation - Extending List Report using Adaptation Project](exercises/ex_3)
 
 
 ## How to obtain support
