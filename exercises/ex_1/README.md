@@ -124,5 +124,5 @@ Run your program and login to your Fiori Launchpad and you should see two notifi
 
   ![Notifications in your Fiori Launchpad](images/flp_notifications.png)
 
-# Conclusion
+## Conclusion
 You have created and tested your custom notification provider. In the next section you will find an option to trigger notification creation from an OData service.

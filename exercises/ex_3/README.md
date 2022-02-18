@@ -178,5 +178,5 @@ Per the name, LREP has multiple layers and for any of your extensions, changes s
 
 You can find more information about Layered Repository in the following link: [SAPUI5 Flexibility Services](https://help.sap.com/viewer/b4b7cba328bc480d9b373c7da9335537/2.08/en-US/a8e55aa2f8bc4127923b20685a6d1621.html)
 
-# Conclusion
+## Conclusion
 You have now concluded visual adaptation tasks for your extension project. In the next section we will run activities to add custom JAVASCRIPT code to your app and trigger notification creation
