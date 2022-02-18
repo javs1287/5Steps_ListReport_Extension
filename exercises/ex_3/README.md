@@ -6,6 +6,7 @@ In this section you will start putting all pieces together: your custom notifica
 Notes:
 - **In this section we will assume connectivity issues have been solved and you are familiar with the destinations you created in WP01_D.**
 - **For extending the UI you will be using Adaptation Projects in BAS. This feature is not yet available in Visual Studio Code.**
+- **Sample project with the final result of the execution of the exercises in this section is available in [here](sources/Sample Project)**
 
 ## Prepare Adaptation Project in Business Application Studio
 Launch BAS, make sure your DevSpace is running and launch it. Once loaded, go to View --> Find Command, enter the keyword “template” and select option: Open Template Wizard.
