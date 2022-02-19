@@ -1,0 +1,68 @@
+CLASS zcl_5s2f_po0001_xx DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    INTERFACES /iwngw/if_notif_provider .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_5s2f_po0001_xx IMPLEMENTATION.
+
+
+  METHOD /iwngw/if_notif_provider~get_notification_type.
+
+    DATA ls_naction LIKE LINE OF et_notification_action.
+
+    CLEAR: es_notification_type,et_notification_action.
+
+    es_notification_type-version  = iv_type_version.
+    es_notification_type-type_key = iv_type_key.
+    es_notification_type-is_groupable = abap_true.
+
+  ENDMETHOD.
+
+
+  METHOD /iwngw/if_notif_provider~get_notification_type_text.
+
+    DATA: lv_language TYPE spras,
+          lv_temptext TYPE /iwngw/notif_templ_sensitive.
+
+    CLEAR: es_type_text.
+
+
+    lv_temptext = TEXT-001.
+    REPLACE '&1' WITH '{po_number}' INTO lv_temptext.
+    es_type_text-template_public    = lv_temptext.
+    es_type_text-template_sensitive = lv_temptext.
+    es_type_text-template_grouped   = lv_temptext.
+    es_type_text-description        = lv_temptext.
+
+
+    SET LANGUAGE lv_language.
+
+  ENDMETHOD.
+
+
+  METHOD /iwngw/if_notif_provider~handle_action.
+
+    CLEAR es_result.
+**   For now always return success if ids are set, since no persistence in this provider
+    es_result-success          = abap_true.
+    es_result-delete_on_return = abap_false.
+
+  ENDMETHOD.
+
+
+  METHOD /iwngw/if_notif_provider~handle_bulk_action.
+
+*** As of now no actions required
+    CLEAR et_notif_result.
+
+  ENDMETHOD.
+ENDCLASS.
