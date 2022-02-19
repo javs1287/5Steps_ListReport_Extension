@@ -1,3 +1,5 @@
 .DS_Store
 ZPOEXT.NOTIF.XX.tar
 .git.bfg-report
+.git.bfg-report/
+.git.bfg-report/
