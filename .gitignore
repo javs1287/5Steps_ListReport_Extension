@@ -2,4 +2,16 @@
 ZPOEXT.NOTIF.XX.tar
 .git.bfg-report
 .git.bfg-report/
-.git.bfg-report/
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
