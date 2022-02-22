@@ -1,0 +1,4 @@
+<!-- Use stable and unique id's!-->
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns="sap.m">
+    <Button id="extBtn" text="Send Notification (Extension)" press=".extension.customer.ZPOEXT.NOTIF.XX.extManagePONotification_XX.SendNotification"></Button>
+</core:FragmentDefinition>

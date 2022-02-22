@@ -1,0 +1,33 @@
+{
+	"fileName": "id_1645215491132_397_hideControl",
+	"fileType": "change",
+	"changeType": "hideControl",
+	"moduleName": "",
+	"reference": "customer.ZPOEXT.NOTIF.XX",
+	"packageName": "$TMP",
+	"content": {},
+	"selector": {
+		"id": "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ListReport.view.ListReport::C_PurchaseOrderTP--action::MM_PUR_PO_MAINT_V2_SRV.MM_PUR_PO_MAINT_V2_SRV_Entities::C_PurchaseOrderTPCopy_po",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/ui.ssuite.s2p.mm.pur.po.manage.st.s1/changes/",
+	"projectId": "customer.ZPOEXT.NOTIF.XX",
+	"creation": "2022-02-18T20:18:15.046Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "sap.ui.rta.command",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.90.11",
+		"sourceChangeFileName": "",
+		"compositeCommand": "id_1645215491132_398_composite",
+		"command": "remove"
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

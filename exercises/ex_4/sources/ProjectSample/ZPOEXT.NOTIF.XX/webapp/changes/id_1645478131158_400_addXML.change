@@ -1,0 +1,37 @@
+{
+	"fileName": "id_1645478131158_400_addXML",
+	"fileType": "change",
+	"changeType": "addXML",
+	"moduleName": "customer/ZPOEXT/NOTIF/XX/changes/fragments/extManagePONotification_XX.fragment.xml",
+	"reference": "customer.ZPOEXT.NOTIF.XX",
+	"packageName": "$TMP",
+	"content": {
+		"targetAggregation": "content",
+		"index": 9,
+		"fragmentPath": "fragments/extManagePONotification_XX.fragment.xml"
+	},
+	"selector": {
+		"id": "ui.ssuite.s2p.mm.pur.po.manage.st.s1::sap.suite.ui.generic.template.ListReport.view.ListReport::C_PurchaseOrderTP--template::ListReport::TableToolbar",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/ui.ssuite.s2p.mm.pur.po.manage.st.s1/changes/",
+	"projectId": "customer.ZPOEXT.NOTIF.XX",
+	"creation": "2022-02-21T21:15:31.678Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "sap.ui.rta.command",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.90.11",
+		"sourceChangeFileName": "",
+		"compositeCommand": "",
+		"command": "addXML"
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": true,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

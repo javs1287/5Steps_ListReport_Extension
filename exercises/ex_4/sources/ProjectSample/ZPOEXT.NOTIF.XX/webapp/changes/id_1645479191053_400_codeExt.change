@@ -1,0 +1,34 @@
+{
+	"fileName": "id_1645479191053_400_codeExt",
+	"fileType": "change",
+	"changeType": "codeExt",
+	"moduleName": "customer/ZPOEXT/NOTIF/XX/changes/coding/extManagePONotification_XX",
+	"reference": "customer.ZPOEXT.NOTIF.XX",
+	"packageName": "$TMP",
+	"content": {
+		"codeRef": "coding/extManagePONotification_XX.js"
+	},
+	"selector": {
+		"controllerName": "sap.suite.ui.generic.template.ListReport.view.ListReport"
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/ui.ssuite.s2p.mm.pur.po.manage.st.s1/changes/",
+	"projectId": "customer.ZPOEXT.NOTIF.XX",
+	"creation": "2022-02-21T21:33:11.055Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.90.11",
+		"sourceChangeFileName": "",
+		"compositeCommand": "",
+		"command": ""
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}
