@@ -53,6 +53,9 @@ Follow these steps to extend standard app Manage Purchase Orders using Business 
 * [Exercise 1 - Developing and testing a custom Notification Provider](exercises/ex_1)
 * [Exercise 2 - Triggering Notifications from an OData service](exercises/ex_2)
 * [Exercise 3 - Adaptation - Extending List Report using Adaptation Project](exercises/ex_3)
+* [Exercise 4 - Extension – Adding Custom Actions to a List Report using Adaptation Project](exercises/ex_4)
+* [Exercise 5 - Understanding the code](exercises/ex_5)
+* [Exercise 6 - Deploying your custom app to your backend system](exercises/ex_6)
 
 
 ## How to obtain support
