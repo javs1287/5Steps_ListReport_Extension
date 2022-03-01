@@ -3,15 +3,15 @@
 ## Introduction
 In this section you will add the required modifications to enable an additional action in the List Report table header. Before you start, please be aware that we will not provide detailed explanations of what is occuring at runtime. To properly understand how the code in an extension works you must become familiar with the following concepts:
 
-•	DOM Manipulation
-•	SAPUI5 Controller Lifecycle Methods
-•	MVC (Model, View Controller)
-•	Controller
-•	Controller Extensions
-•	Data binding
-•	Fragments
-•	Unique ID‘s
-•	Modules and Dependencies
+* DOM Manipulation
+* SAPUI5 Controller Lifecycle Methods
+* MVC (Model, View Controller)
+* Controller
+* Controller Extensions
+* Data binding
+* Fragments
+* Unique ID‘s
+* Modules and Dependencies
 
 **In this section we will first have you create all objects so you familiarize with the features and in the next section we will explain the code.**
 

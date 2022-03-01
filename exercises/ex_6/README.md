@@ -1,182 +1,148 @@
-# ADAPTATION – EXTENDING LIST REPORT USING ADAPTATION PROJECT
+# DEPLOYING YOUR CUSTOM APP TO YOUR BACKEND SYSTEM
 
 ## Introduction
-In this section you will start putting all pieces together: your custom notification provider, the OData service call, and your custom UI code extension in order to deliver innovations to your business. For this and upcoming sections it is important you have solved any connectivity issues between your On-Premise system, SAP Cloud Connector and your trial SAP BTP instance as Business Application Studio (BAS) will require connectivity between these elements to work properly.
+In this section you will deploy your custom app to your SAP S/4HANA system and consume the app in your own SAP Fiori Launchpad.
 
-Notes:
-- **In this section we will assume connectivity issues have been solved and you are familiar with the destinations you created in WP01_D.**
-- **For extending the UI you will be using Adaptation Projects in BAS. This feature is not yet available in Visual Studio Code.**
+## Deploy your Adaptation Project to your SAP S/4HANA backend system
+Open Template Wizard, select generator: Deploy Adaptation Project and click Start.
 
-## Prepare Adaptation Project in Business Application Studio
-Launch BAS, make sure your DevSpace is running and launch it. Once loaded, go to View --> Find Command, enter the keyword “template” and select option: Open Template Wizard.
+  ![Deploy Application](images/deploy1.png)
 
-  ![Launch wizard](images/launch_wizard.png)
+Select your backend system destination
 
-Select Adaptation Project Generator
+  ![Deploy Application](images/deploy2.png)
 
-  ![Adaptation Project Generator](images/project_generator.png)
+Enter your backend system credentials to authenticate and continue
 
-Select target environment: ABAP
+  ![Deploy Application](images/deploy3.png)
 
-  ![Target Environment](images/target_environment.png)
+Before you continue to enter the required information, open **manifest.appvariant_desc** file in the editor can copy the value for parameter namespace
 
-Enter the details of your adaptation project where XX represents your developer ID and continue:
+  ![Deploy Application](images/deploy4.png)
 
-- Project Name: ZPOEXT.NOTIF.XX
-- Application Title: Send Notifications
-- Namespace: <Updated automatically>
+Enter values for required fields where XX represents your developer ID:
 
-Note:
-* **DO NOT overwrite, delete, or edit the namespace value. The wizard relies on this value, changing it might affect the deployment of your project into your SAP S/4HANA system.**
-* **Project name must be entered using UI component notation with letters/words and dots “.” only.**
+**Namespace: <Obtained in previous step>**
+**Package: ZFIO_LR_EXT_XX**
+**Transport request number: <Any available workbench request>**
 
-  ![Project Details](images/project_details.png)
+  ![Deploy Application](images/deploy5.png)
 
-Define backend destination and login to retrieve available services.On successful authentication you will see the list of available apps.
+Wait for the deployment of your code. On success you will see notifications describing successful deployment.
 
-Type application name “Manage Purchase Orders” and select it from the dropdown menu.
+  ![Deploy Application](images/deploy6.png)
 
-  ![Project Details](images/project_details_2.png)
+To confirm successful deployment, run report /UIF/GET_FILES_4_NS in your S/4HANA backend and make sure you only select the Customer base layer.
 
-Use default values for field “Select SAP UI5 version” and click on Finish.
+  ![Deploy Application](images/deploy7.png)
 
-## Understanding Project Structure in Business Application Studio Adaptation Project
-Once your workspace is reloaded you will notice a new project structure including multiple folders and files. For this exercise we will only work with the content inside the **webapp** folder.
+You should find all created objects, including your fragment and controller.
 
-* DO NOT MODIFY content from any other folder apart from the **webapp** folder.
+  ![Deploy Application](images/deploy8.png)
 
-  ![Project Structure](images/project_structure.png)
+Start the Manage Launchpad App from your launchpad. Search for your custom catalog ZFIORI_TC_EXTENSIBLITY, open it and select option to copy content from other catalog.
 
-### I18N folder
-In here you will find all the values for text translations that you may add to your app. The concept is based on the JAVA internationalization standard where you define bundles (files) for each language (locale) that you wish to support.
+  ![Deploy Application](images/deploy10.png)
 
-Naming syntax of these files is the following:
-- baseName + "_" + language1 + "_" + country1 + "_" + variant1
-- baseName + "_" + language1 + "_" + country1
-- baseName + "_" + language1
-- baseName + "_" + language2 + "_" + country2 + "_" + variant2
-- baseName + "_" + language2 + "_" + country2
-- baseName + "_" + language2
+Enter Package and transport request where XX represents your developer ID:
 
-Where baseName = i18n and the extension of these files must always be “.properties”.
+**Package: ZFIO_LR_EXT_XX**
+**Transport request number: <Any available workbench request>.**
 
-**Note - We will not cover text localization in this exercise. For more information on this topic please refer to the [available documentation](https://sapui5.hana.ondemand.com/sdk/#/topic/91f217c46f4d1014b6dd926db0e91070).**
+  ![Deploy Application](images/deploy11.png)
 
-  ![I18N](images/i18n.png)
+Click the Copy from Other Catalog button and search for SAP_TC_PRC_COMMON. This is the technical catalog for Manage Purchase Orders & can be found in the Fiori [Apps library](https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/#/detail/Apps('F0842A'))
 
-### Manifest.appdescr_variant file
-This file references the original application manifest file which is the file that describes available objects in the original app. This means that any change you perform in this file will be injected into the original app.
+You may also search for the app by using “Adapt Filters” button and searching for:
 
-In the following steps you will start modifying the app by using the Visual Editor which will in turn add required changes into the file automatically for you.
+**Semantic Object:   PurchaseOrder**
+**Semantic Action:   manage**
 
-**Please note that you do not need to write any text entries into this file, the wizard will create the required changes in this file automatically so please refrain from manually editing this file.**
+  ![Deploy Application](images/deploy12.png)
 
-  ![Manifest File](images/manifest_appdescrvariant.png)
+Before you continue you need to obtain the technical ID of your extension. To do so, in your BAS project, open **manifest.appdescr_variant** in the text editor and copy the value of parameter ID where XX represents your developer ID:
 
-## Performing UI Adaptations with Visual Editor in Business Application Studio Adaptation Project
-In this section you will start creating UI Adaptations with help of Visual Editor in Business Application Studio.
+**Sample ID: customer.ZPOEXT.NOTIF.XX**
 
-Right-click on file manifest.appdescr_variant and select Open SAPUI5 Visual Editor.
+  ![Deploy Application](images/parameter.png)
 
-  ![Launch Visual Editor](images/launch_visualeditor.png)
+Edit the three values highlighted in red where XX represents your developer ID and Save:
 
-On first launch you will be prompted for authentication (twice). Enter your S/4HANA backend credentials and wait for the tool to finish loading.
+**Action: zManage  (this field is case sesitive)**
+**SAP UI5 Component ID: <obtained in previous step>**
+**Target Application Title: Send Notifications**
 
-  ![Tool Loading](images/tool_loading.png)
+  ![Deploy Application](images/deploy13.png)
 
-Visual Editor will load in Preview mode by default, which in turn allows you to interact with the app as you would normally do when using your On-Premise SAP Fiori Launchpad. Click on Go to retrieve information from the backend system.
+In the Tiles tab, edit fields Title and Subtitle and Save:
 
-  ![Tool Preview](images/tool_preview.png)
+**Title:   Review Purchase Orders**
+**Subtitle:  Send Notifications**
 
-Once information is loaded, switch Visual Editor to Edit mode. You will notice additional sections are loaded.
+  ![Deploy Application](images/deploy14.png)
 
-In the Outline and Changes section you will find a list of all the available SAPUI5 controls in the app and the list of modifications that you create.
+Go back to the Fiori Launchpad space and open FLP Content Manager: Client Specific. Search for your custom catalog: ZFIORI_BC_EXTENSIBILITY and select button to Add Tiles/Target Mappings to selected Catalog
 
-In the Control section you will find the technical details of the controls you select. Information in this section includes bound objects, control ID/name, etc.
+  ![Deploy Application](images/deploy15.png)
 
-  ![BAS Sections](images/bas_sections.png)
+Search for custom action zManage, select the Target Mapping and click on button Add Tile/TM Reference. You will be prompted to enter a transport request. Once done, navigate back to the main screen
 
-Right-click on any section of the filter grid and select Adapt Filters.
+  ![Deploy Application](images/deploy16.png)
 
-  ![Adapt Filters](images/BAS_adaptfilters.png)
+Using transaction PFCG or SU01 assign role ZFIORI_BR_EXTENSIBILITY to your user ID.
 
-Adapt Filter screen will be displayed. Add/remove corresponding filters to make only the following filter options available:
+  ![Deploy Application](images/deploy18.png)
 
-- Company Code
-- Status
-- Purchase Order Date
+Run the mass maintenance program PRGN_COMPARE_ROLE_MENU to assist you in adjusting the role services and authorizations. Navigate to the program editor.
 
-Once ready, click on button Show Values
+For example, you can find transaction SE38 using the App Finder > SAP Menu.
+* Enter the program name PRGN_COMPARE_ROLE_MENU and press Execute.
+* Start the program in SA38 or SE38 and enter your custom role ZFIORI_BR_EXTENSIBILITY
+* Check the Type of Application Group = Launchpad Catalog
 
-  ![Adapt Filters](images/BAS_adaptfilters1.png)
+  ![Deploy Application](images/deploy19.png)
+  ![Deploy Application](images/deploy20.png)
 
-Set default values for the filters and click Ok.
+Select all the rows and press Adapt Menu to update the role.
 
-- Status:     Not Yet Sent, Sent
-- Purchase Order Date:     Last Year*
+**IMPORTANT: Adapt Menu will update the menu tab listing the applications in the role. This also updates the related authorizations. However, it will NOT yet generate the authorizations profile.  This gives you the chance to review and adjust the authorizations if you need to.**
 
-***Default value for Purchase Order Date filter is set for Last Year considering the use of CAL systems. If you are using your own On-Premise instance and know of a more suitable filter value, adjust this value as needed.***
+  ![Deploy Application](images/deploy21.png)
 
-  ![Adapt Filters](images/BAS_adaptfilters2.png)
+Click on button Mass Generation. Select your role and click on Generate Profile.
 
-Right click on the Filter Variant menu and select option Save View As
+  ![Deploy Application](images/deploy22.png)
+  ![Deploy Application](images/deploy23.png)
 
-  ![Adapt Filters](images/BAS_adaptfilters3.png)
+Select option Read old status and merge with new data and Execute.
 
-Name your view, set default load behavior and Save:
+  ![Deploy Application](images/deploy24.png)
 
-- View:     Send Notifications
-- Set as default:     Checked
-- Apply Automatically:     Checked
+For this exercise we can assign ‘*’ to the authorization object activities.
 
-  ![Adapt Filters](images/BAS_adaptfilters4.png)
+**For these exercises it is sufficient to use the wildcard * for all values. In your own development environment. you should set appropriate values for each authorization field based on your business requirements.**
 
-Remove not-required buttons from the layout: right-click on the action buttons in the table header and select option Remove.
+  ![Deploy Application](images/deploy25.png)
 
-Make sure the following buttons are removed:
+Save and Generate the authorization profile. Click on Back to get back to the Mass Generation Program
+  ![Deploy Application](images/deploy26.png)
 
-- Withdraw from Approval
-- Copy
-- Create
-- Delete
-- Hide Draft Values
+Go Back and Refresh the screen. Click on button Role to navigate to the PFCG view of your role.
 
-  ![Adapt Filters](images/BAS_adaptfilters5.png)
+  ![Deploy Application](images/deploy27.png)
+  ![Deploy Application](images/deploy28.png)
 
-You will now create a table variant. To do so, switch to Preview mode and go to settings options of the table.
+Run the User Comparison to adjust user authorization data / profiles. (A Red icon indicates this needs to be done).
 
-  ![Adapt Filters](images/BAS_adaptfilters6.png)
+  ![Deploy Application](images/deploy29.png)
 
-Activate field **Created By** and switch to Group settings.
+Logon to your SAP Fiori Launchpad and search for both your custom catalog and your custom tile – which is based on your app variant  
 
-  ![Adapt Filters](images/BAS_adaptfilters7.png)
+  ![Deploy Application](images/deploy30.png)
 
-Set grouping for field Created By and click Ok.
+Launch your custom variant and try out your customized SAP Fiori application Review Purchase Orders – Send Notifications
 
-  ![Adapt Filters](images/BAS_adaptfilters8.png)
-
-Switch back to Edit mode and right-click on the table variant menu to select option Save View As.
-
-Name your view, set default load behavior and Save:
-
-- View:     Send Notifications
-- Set as default:     Checked
-
-  ![Adapt Filters](images/BAS_adaptfilters9.png)
-
-Switch to the Changes view and you will find a list of all the modifications we’ve performed so far. You will also find a new folder called changes listing all the code modifications done to the UI.
-
-  ![Changes View](images/changes_view.png)
-
-All the changes we have made so far are considered UI Adaptations, meaning they are runtime modifications; hence they will be controlled by an element called Layered Repository (LREP)
-
-The Layered Repository has the capability of identifying runtime modifications based on instructions provided by an internal rendering API. The code you find in the files under the change folder is the metadata structure the internal API sends to the Layered Repository which allows for the modifications to become enabled during application load.
-
-Per the name, LREP has multiple layers and for any of your extensions, changes should always be in the “CUSTOMER_BASE” layer.
-
-  ![Changes Detail](images/changes_detail.png)
-
-You can find more information about Layered Repository in the following link: [SAPUI5 Flexibility Services](https://help.sap.com/viewer/b4b7cba328bc480d9b373c7da9335537/2.08/en-US/a8e55aa2f8bc4127923b20685a6d1621.html)
+  ![Deploy Application](images/deploy31.png)
 
 ## Conclusion
-You have now concluded visual adaptation tasks for your extension project. In the next section we will run activities to add custom JAVASCRIPT code to your app and trigger notification creation
+You have now concluded an end-to-end development of an SAP Fiori App extension. We hope you enjoyed this exercise!
