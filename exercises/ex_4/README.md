@@ -52,11 +52,11 @@ Enter controller name where XX represents your developer ID and click on Extend:
 
   ![Add Controller](images/extend_controller1.png)
 
-A new file will be created, in here you will be adding code for your extension, copy the code from this sample into your project. Reference file is available here.
+A new file will be created, in here you will be adding code for your extension, copy the code from this sample into your project. Reference file is available [here](sources/extManagePONotification_XX.js).
 
   ![Add Controller](images/extend_controller2.png)
 
-Go back to the definition of your fragment and bind your code to the Press event of the button
+Go back to the definition of your fragment and bind your code to the Press event of the button. Reference code is available [here](sources/extManagePONotification_XX.fragment.xml)
 
   ![Add Controller](images/extend_controller3.png)
 
