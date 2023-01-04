@@ -16,14 +16,14 @@ Once you have logged in, click on **Next**
 
   ![Deploy Application](images/deploy3.png)
 
-Before you continue to enter the required information, open **manifest.appvariant_desc** file in the editor can copy the value for parameter namespace
+Enter the name of the package where you will deploy the extension and click **Next**
+
+**Package: ZFIO_LR_EXT_XX**
 
   ![Deploy Application](images/deploy4.png)
 
-Enter values for required fields where XX represents your developer ID:
+Enter a transport request to store the deployed objects and click on **Finish**
 
-**Namespace: <Obtained in previous step>**
-**Package: ZFIO_LR_EXT_XX**
 **Transport request number: <Any available workbench request>**
 
   ![Deploy Application](images/deploy5.png)
