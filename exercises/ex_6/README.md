@@ -4,15 +4,15 @@
 In this section you will deploy your custom app to your SAP S/4HANA system and consume the app in your own SAP Fiori Launchpad.
 
 ## Deploy your Adaptation Project to your SAP S/4HANA backend system
-Open Template Wizard, select generator: Deploy Adaptation Project and click Start.
+Right-click on the **manifest.appdescr_variant** file and from the menu navigate to **Adaptation Project >> Open Deployment Wizard**.
 
   ![Deploy Application](images/deploy1.png)
 
-Select your backend system destination
+Select your backend system destination and login with your user ID and password
 
   ![Deploy Application](images/deploy2.png)
 
-Enter your backend system credentials to authenticate and continue
+Once you have logged in, click on **Next**
 
   ![Deploy Application](images/deploy3.png)
 
